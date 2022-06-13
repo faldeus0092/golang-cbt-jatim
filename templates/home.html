@@ -1,0 +1,103 @@
+{{ template "header.html" }}
+  <div class="title">
+    <h1 align="center"><b>Cari Siswa</b></h1>
+    <a type="button" class="btn btn-secondary" href="/v1/download">Download all data</a>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group" id="adv-search">
+        <form action="/v1/" method="POST" class="form-inline" name="adv-search">
+          <div class="form-row">
+            <div class="col-md-4 col-sm-12">
+              <input type="text" class="form-control" placeholder="Masukkan nama" name="nama">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Masukkan NRP" name="nrp">
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="id_kota">
+                <option value="1" selected="selected">Kab. Bangkalan</option>
+                <option value="2">Kab. Banyuwangi</option>
+                <option value="3">Kab. Blitar</option>
+                <option value="4">Kab. Bojonegoro</option>
+                <option value="5">Kab. Bondowoso</option>
+                <option value="6">Kab. Gresik</option>
+                <option value="7">Kab. Jember</option>
+                <option value="8">Kab. Jombang</option>
+                <option value="9">Kab. Kediri</option>
+                <option value="10">Kab. Lamongan</option>
+                <option value="11">Kab. Lumajang</option>
+                <option value="12">Kab. Madiun</option>
+                <option value="13">Kab. Magetan</option>
+                <option value="14">Kab. Malang</option>
+                <option value="15">Kab. Mojokerto</option>
+                <option value="16">Kab. Nganjuk</option>
+                <option value="17">Kab. Ngawi</option>
+                <option value="18">Kab. Pacitan</option>
+                <option value="19">Kab. Pamekasan</option>
+                <option value="20">Kab. Pasuruan</option>
+                <option value="21">Kab. Ponorogo</option>
+                <option value="22">Kab. Probolinggo</option>
+                <option value="23">Kab. Sampang</option>
+                <option value="24">Kab. Sidoarjo</option>
+                <option value="25">Kab. Situbondo</option>
+                <option value="26">Kab. Sumenep</option>
+                <option value="27">Kab. Trenggalek</option>
+                <option value="28">Kab. Tuban</option>
+                <option value="29">Kab. Tulungagung</option>
+                <option value="30">Kota Batu</option>
+                <option value="31">Kota Blitar</option>
+                <option value="32">Kota Kediri</option>
+                <option value="33">Kota Madiun</option>
+                <option value="34">Kota Malang</option>
+                <option value="35">Kota Mojokerto</option>
+                <option value="36">Kota Pasuruan</option>
+                <option value="37">Kota Probolinggo</option>
+                <option value="38">Kota Surabaya</option>
+              </select>
+            </div>
+            <div class="col-md-1 col-sm-12">
+              <button type="submit" value="Submit" class="btn btn-secondary">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="list-group list-group-flush" id="notes">
+      {{ range .userdata }}
+      <div class="card">
+        <li class="list-group-item">
+          <b>ID no #{{ .ID_siswa }}</b>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-3" style="margin: auto;">
+              <h2><b>{{ .Nama }}</b></h2>
+              <p>NRP: {{ .Nrp }}</p>
+            </div>
+            <div class="col-3" style="margin: auto;">
+              <p>Fisika: <b>{{ .Fisika }}</b></p>
+              <p>Kimia: <b>{{ .Kimia }}</b></p>
+              <p>Matematika: <b>{{ .Matematika }}</b></p>
+            </div>
+            <div class="col-3" style="margin: auto;">
+              <p>Biologi: <b>{{ .Biologi }}</b></p>
+              <p>Agama: <b>{{ .Agama }}</b></p>
+              <p>Bahasa Indonesia: <b>{{ .Bahasa_Indonesia }}</b></p>
+            </div>
+            <div class="col-3" style="margin: auto;">
+              <p>Bahasa Inggris: <b>{{ .Bahasa_Inggris }}</b></p>
+            </div>
+          </div>
+        </li>
+      </div>
+      {{ end }}
+    </ul>
+  </div>
+  
+ {{ template "footer.html" }}
+  
