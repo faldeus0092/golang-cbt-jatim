@@ -78,7 +78,7 @@ func (h *siswaHandler) SearchFilter(c *gin.Context) {
 }
 
 func (h *siswaHandler) SearchFilterFrontEnd(c *gin.Context) {
-	fmt.Println("Search kontol")
+	// fmt.Println("Search kontol")
 	namaVal := c.PostForm("nama")
 	nrpVal := c.PostForm("nrp")
 	id_kota_Val := c.PostForm("id_kota")
